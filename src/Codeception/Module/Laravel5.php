@@ -183,7 +183,7 @@ class Laravel5 extends Framework implements ActiveRecord
         }
 
         $app = require $bootstrapFile;
-        $app->loadEnvironmentFrom($this->config['environment_file']);
+		if( !empty($this->config['environment_file']) ) $app->loadEnvironmentFrom($this->config['environment_file']);
 
         return $app;
     }
